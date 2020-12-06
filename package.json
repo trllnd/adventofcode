@@ -1,0 +1,32 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "mocha ./src/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trllnd/adventofcode.git"
+  },
+  "author": "trllnd",
+  "license": "SEE LICENSE IN LINCENSE",
+  "bugs": {
+    "url": "https://github.com/trllnd/adventofcode/issues"
+  },
+  "homepage": "https://github.com/trllnd/adventofcode#readme",
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "mocha": "^8.2.1",
+    "prettier": "2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md}": "prettier --write"
+  }
+}
