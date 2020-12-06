@@ -1,7 +1,7 @@
 const assert = require("assert");
 const input = require("./input.txt");
 
-describe("day 1", () => {
+describe("Day 1: Report Repair", () => {
   describe("part 1: find the two entries that sum to 2020 and then multiply those two numbers together", () => {
     it("should handle input", () =>
       assert.strictEqual(response(2, input), 776064));

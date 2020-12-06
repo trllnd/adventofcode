@@ -1,8 +1,8 @@
 const assert = require("assert");
 const input = require("./input.txt");
 
-describe("day 2", () => {
-  describe("part 1: How many passwords are valid according to their policies?", () => {
+describe("Day 2: Password Philosophy", () => {
+  describe("part 1: how many passwords are valid according to their policies?", () => {
     it("should handle input", () =>
       assert.strictEqual(response(validate1, input), 469));
 
@@ -19,7 +19,7 @@ describe("day 2", () => {
     );
   });
 
-  describe("part 2: How many passwords are valid according to their policies?", () => {
+  describe("part 2: how many passwords are valid according to their policies?", () => {
     it("should handle input", () =>
       assert.strictEqual(response(validate2, input), 267));
 
