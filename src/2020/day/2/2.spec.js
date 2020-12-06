@@ -1,21 +1,22 @@
 const assert = require("assert");
 const input = require("./input.txt");
 
-describe("How many passwords are valid according to their policies?", () => {
-  it("should handle input", () => assert.strictEqual(response(input), 469));
+describe("day 2", () =>
+  describe("How many passwords are valid according to their policies?", () => {
+    it("should handle input", () => assert.strictEqual(response(input), 469));
 
-  ["1-3 a: abcde", "2-9 c: ccccccccc"].forEach((password) =>
-    it(`${password} should be valid`, () => {
-      assert(isValid(password));
-    })
-  );
+    ["1-3 a: abcde", "2-9 c: ccccccccc"].forEach((password) =>
+      it(`${password} should be valid`, () => {
+        assert(isValid(password));
+      })
+    );
 
-  ["1-3 b: cdefg"].forEach((password) =>
-    it(`${password} should not be valid`, () => {
-      assert(!isValid(password));
-    })
-  );
-});
+    ["1-3 b: cdefg"].forEach((password) =>
+      it(`${password} should not be valid`, () => {
+        assert(!isValid(password));
+      })
+    );
+  }));
 
 function response(passwords) {
   let n = 0;
