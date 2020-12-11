@@ -1,5 +1,5 @@
 const assert = require("assert");
-const input = require("./input.txt");
+const input = require("./input.txt").lines();
 
 describe("Day 1: Report Repair", () => {
   it("part 1: find the two entries that sum to 2020 and then multiply those two numbers together", () =>

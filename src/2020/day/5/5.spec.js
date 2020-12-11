@@ -1,5 +1,5 @@
 const assert = require("assert");
-const input = require("./input.txt");
+const input = require("./input.txt").lines();
 
 describe("Day 5: Binary Boarding", () => {
   it("part 1: What is the highest seat ID on a boarding pass?", () =>

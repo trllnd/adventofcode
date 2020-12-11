@@ -1,5 +1,5 @@
 const assert = require("assert");
-const input = require("./input.txt");
+const input = require("./input.txt").lines();
 
 describe("Day 2: Password Philosophy", () => {
   it("part 1: how many passwords are valid according to their policies?", () =>
