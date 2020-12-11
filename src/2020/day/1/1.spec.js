@@ -91,7 +91,5 @@ function response(n, expenses) {
     elements = indexes.map((index) => parseInt(expenses[index]));
   } while (elements.reduce((a, b) => a + b, 0) !== 2020);
 
-  const result = elements.reduce((a, b) => a * b, 1);
-  console.log(result, elements);
-  return result;
+  return elements.reduce((a, b) => a * b, 1);
 }
