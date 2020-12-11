@@ -3,7 +3,7 @@ const input = require("./input.txt");
 
 describe("Day 5: Binary Boarding", () => {
     describe("part 1: What is the highest seat ID on a boarding pass?", () => {
-        it("should handle input", () => assert.strictEqual(response(input), 965));
+        it("should handle input", () => assert.strictEqual(part1(input), 965));
 
         [
             ["FBFBBFFRLR", 357],
@@ -14,9 +14,21 @@ describe("Day 5: Binary Boarding", () => {
             it(`${pass} id should be ${expected}`, () => assert.strictEqual(id(pass), expected)))
 
     });
+
+    describe("part 2: What is the ID of your seat?", () => {
+        it("should handle input", () => assert.strictEqual(part2(input), 524));
+    });
 });
 
-const response = (input) => input.reduce((a, b) => Math.max(a, id(b)), 0);
+const part2 = (input) => 1 + input
+    .map(id)
+    .sort((a, b) => a - b)
+    .find((id, i, arr) =>
+        i !== 0
+        && i !== input.length - 1
+        && (arr[i + 1] - arr[i - 1] !== 2));
+
+const part1 = (input) => input.reduce((a, b) => Math.max(a, id(b)), 0);
 
 const id = (pass) => {
     let row;
