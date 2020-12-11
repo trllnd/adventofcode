@@ -2,39 +2,27 @@ const assert = require("assert");
 const input = require("./input.txt");
 
 describe("Day 2: Password Philosophy", () => {
-  describe("part 1: how many passwords are valid according to their policies?", () => {
-    it("should handle input", () =>
-      assert.strictEqual(response(validate1, input), 469));
+  it("part 1: how many passwords are valid according to their policies?", () =>
+    assert.strictEqual(response(validate1, input), 469));
 
-    ["1-3 a: abcde", "2-9 c: ccccccccc"].forEach((password) =>
-      it(`${password} should be valid`, () => {
-        assert(validate1(password));
-      })
-    );
+  it("part 2: how many passwords are valid according to their policies?", () =>
+    assert.strictEqual(response(validate2, input), 267));
 
-    ["1-3 b: cdefg"].forEach((password) =>
-      it(`${password} should not be valid`, () => {
-        assert(!validate1(password));
-      })
-    );
-  });
+  ["1-3 a: abcde", "2-9 c: ccccccccc"].forEach((password) =>
+    it(`${password} should be valid`, () => assert(validate1(password)))
+  );
 
-  describe("part 2: how many passwords are valid according to their policies?", () => {
-    it("should handle input", () =>
-      assert.strictEqual(response(validate2, input), 267));
+  ["1-3 b: cdefg"].forEach((password) =>
+    it(`${password} should not be valid`, () => assert(!validate1(password)))
+  );
 
-    ["1-3 a: abcde"].forEach((password) =>
-      it(`${password} should be valid`, () => {
-        assert(validate2(password));
-      })
-    );
+  ["1-3 a: abcde"].forEach((password) =>
+    it(`${password} should be valid`, () => assert(validate2(password)))
+  );
 
-    ["1-3 b: cdefg", "2-9 c: ccccccccc"].forEach((password) =>
-      it(`${password} should not be valid`, () => {
-        assert(!validate2(password));
-      })
-    );
-  });
+  ["1-3 b: cdefg", "2-9 c: ccccccccc"].forEach((password) =>
+    it(`${password} should not be valid`, () => assert(!validate2(password)))
+  );
 });
 
 function response(validate, passwords) {

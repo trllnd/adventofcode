@@ -2,79 +2,72 @@ const assert = require("assert");
 const input = require("./input.txt");
 
 describe("Day 1: Report Repair", () => {
-  describe("part 1: find the two entries that sum to 2020 and then multiply those two numbers together", () => {
-    it("should handle input", () =>
-      assert.strictEqual(response(2, input), 776064));
+  it("part 1: find the two entries that sum to 2020 and then multiply those two numbers together", () =>
+    assert.strictEqual(response(2, input), 776064));
 
-    [
-      [20, 2000, 1, 1, 1],
-      [20, 1, 2000, 1, 1],
-      [20, 1, 1, 2000, 1],
-      [20, 1, 1, 1, 2000],
-      [1, 1, 1, 20, 2000],
-      [1, 1, 20, 1, 2000],
-      [1, 20, 1, 1, 2000],
-      [1, 1, 20, 2000, 1],
-      [1, 20, 1, 2000, 1],
-    ].forEach((expenses) => {
-      it(`should find solution for "${expenses}"`, () => {
-        assert.strictEqual(response(2, expenses), 40000);
-      });
-    });
+  it("part 2: find the three entries that sum to 2020 and then multiply those three numbers together", () =>
+    assert.strictEqual(response(3, input), 6964490));
 
-    [
-      null,
-      [],
-      [1],
-      [1010, 1, 1, 1, 1],
-      [1, 1010, 1, 1, 1],
-      [1, 1, 1010, 1, 1],
-      [1, 1, 1, 1010, 1],
-      [1, 1, 1, 1, 1010],
-    ].forEach((expenses) =>
-      it(`should find no solution for "${expenses}"`, () => {
-        assert.strictEqual(response(2, expenses), null);
-      })
-    );
+  [
+    [20, 2000, 1, 1, 1],
+    [20, 1, 2000, 1, 1],
+    [20, 1, 1, 2000, 1],
+    [20, 1, 1, 1, 2000],
+    [1, 1, 1, 20, 2000],
+    [1, 1, 20, 1, 2000],
+    [1, 20, 1, 1, 2000],
+    [1, 1, 20, 2000, 1],
+    [1, 20, 1, 2000, 1],
+  ].forEach((expenses) => {
+    it(`should find solution for "${expenses}"`, () =>
+      assert.strictEqual(response(2, expenses), 40000));
   });
-  describe("part 2: find the three entries that sum to 2020 and then multiply those three numbers together", () => {
-    it("should handle input", () =>
-      assert.strictEqual(response(3, input), 6964490));
 
-    [
-      [20, 1000, 1000, 1, 1],
-      [1, 20, 1000, 1000, 1],
-      [1, 1, 20, 1000, 1000],
-      [20, 1, 1000, 1000, 1],
-      [1, 20, 1, 1000, 1000],
-      [20, 1000, 1, 1000, 1],
-      [1, 20, 1000, 1, 1000],
-      [20, 1, 1000, 1, 1000],
-    ].forEach((expenses) => {
-      it(`should find solution for "${expenses}"`, () => {
-        assert.strictEqual(response(3, expenses), 20000000);
-      });
-    });
+  [
+    null,
+    [],
+    [1],
+    [1010, 1, 1, 1, 1],
+    [1, 1010, 1, 1, 1],
+    [1, 1, 1010, 1, 1],
+    [1, 1, 1, 1010, 1],
+    [1, 1, 1, 1, 1010],
+  ].forEach((expenses) =>
+    it(`should find no solution for "${expenses}"`, () =>
+      assert.strictEqual(response(2, expenses), null))
+  );
 
-    [
-      null,
-      [],
-      [1],
-      [20, 2000, 1, 1, 1],
-      [20, 1, 2000, 1, 1],
-      [20, 1, 1, 2000, 1],
-      [20, 1, 1, 1, 2000],
-      [1, 1, 1, 20, 2000],
-      [1, 1, 20, 1, 2000],
-      [1, 20, 1, 1, 2000],
-      [1, 1, 20, 2000, 1],
-      [1, 20, 1, 2000, 1],
-    ].forEach((expenses) =>
-      it(`should find no solution for "${expenses}"`, () => {
-        assert.strictEqual(response(3, expenses), null);
-      })
-    );
+  [
+    [20, 1000, 1000, 1, 1],
+    [1, 20, 1000, 1000, 1],
+    [1, 1, 20, 1000, 1000],
+    [20, 1, 1000, 1000, 1],
+    [1, 20, 1, 1000, 1000],
+    [20, 1000, 1, 1000, 1],
+    [1, 20, 1000, 1, 1000],
+    [20, 1, 1000, 1, 1000],
+  ].forEach((expenses) => {
+    it(`should find solution for "${expenses}"`, () =>
+      assert.strictEqual(response(3, expenses), 20000000));
   });
+
+  [
+    null,
+    [],
+    [1],
+    [20, 2000, 1, 1, 1],
+    [20, 1, 2000, 1, 1],
+    [20, 1, 1, 2000, 1],
+    [20, 1, 1, 1, 2000],
+    [1, 1, 1, 20, 2000],
+    [1, 1, 20, 1, 2000],
+    [1, 20, 1, 1, 2000],
+    [1, 1, 20, 2000, 1],
+    [1, 20, 1, 2000, 1],
+  ].forEach((expenses) =>
+    it(`should find no solution for "${expenses}"`, () =>
+      assert.strictEqual(response(3, expenses), null))
+  );
 });
 
 function response(n, expenses) {
@@ -91,5 +84,6 @@ function response(n, expenses) {
     elements = indexes.map((index) => parseInt(expenses[index]));
   } while (elements.reduce((a, b) => a + b, 0) !== 2020);
 
-  return elements.reduce((a, b) => a * b, 1);
+  const result = elements.reduce((a, b) => a * b, 1);
+  return result;
 }
